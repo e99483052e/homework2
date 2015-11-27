@@ -36,34 +36,15 @@ class Game
 		@computer_player = ComputerPlayer.new("Matrix")
 	end
 
-	def get_user_name
-		puts "please enter your name:"
-		gets.chomp.capitalize!
-	end
-
 	def intro
 		puts "***********************"
 		puts "wellcome to RPS Game!!!"
  		puts "***********************"
 	end
 
-	def continue?
-		begin
-			puts "Play again? : Y / N"
-			continue = gets.chomp.upcase
-		end while !["Y", "N"].include?(continue)
-		continue
-	end
-
-	def goodbye
-		puts "================================"
-		puts "Goodbye!! Thanks for playing!!!"
-		puts "================================"
-	end
-
-	def result(user_input, computer_input, message)
-		puts "#{self.human_player.name} choose #{HANDS[user_input.to_sym]},Computer choose #{HANDS[computer_input.to_sym]},#{message}"
-		puts "========================================================="
+	def get_user_name
+		puts "please enter your name:"
+		gets.chomp.capitalize!
 	end
 
 	def check_win(user_input, computer_input)
@@ -89,6 +70,25 @@ class Game
       			end
     		end
     	end
+
+    	def result(user_input, computer_input, message)
+		puts "#{self.human_player.name} choose #{HANDS[user_input.to_sym]},Computer choose #{HANDS[computer_input.to_sym]},#{message}"
+		puts "========================================================="
+	end
+
+    	def continue?
+		begin
+			puts "Play again? : Y / N"
+			continue = gets.chomp.upcase
+		end while !["Y", "N"].include?(continue)
+		continue
+	end
+
+    	def goodbye
+		puts "================================"
+		puts "Goodbye!! Thanks for playing!!!"
+		puts "================================"
+	end
  
  	def play
  		intro
